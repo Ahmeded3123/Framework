@@ -1,0 +1,36 @@
+package PageOpejectModel;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class ForgetPasswordPage {
+	WebDriver driver;
+	@FindBy(xpath ="(//*[@name='email'])[2]") WebElement UserID;
+	@FindBy(name="did_submit") WebElement SearchbuttonClick;
+	@FindBy(xpath= "//*[contains(text(),'Please enter your email ')]")WebElement Questin ;
+	public ForgetPasswordPage(WebDriver driver) {
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+		
+	}
+	
+	public void IdsSendkeys() {
+		UserID.sendKeys("Ahmed@gmail.com");
+		
+	}
+	
+	public void SearchbuttonClick() {
+		SearchbuttonClick.click();
+	}
+	public String QuestionOfText() {
+		String Questions=Questin.getText();
+		
+		return Questions;
+		
+	}
+	
+	
+
+}

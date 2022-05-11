@@ -1,0 +1,35 @@
+package piit.AutomationTraningProgram;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+
+public class Browserd {
+	WebDriver driver; 
+  @Test
+  public void f() {
+	  WebElement id=driver.findElement(By.name("email"));
+	  id.sendKeys("Silem@piit");
+	  WebElement password=driver.findElement(By.name("Pass"));
+	  password.sendKeys("AhmedEdris");
+	  WebElement loginbutton=driver.findElement(By.name("login"));
+	  
+  }
+  @BeforeClass
+  public void beforeClass() {
+	  System.setProperty("webdriver.chrome.driver","C:\\Users\\ahmed\\eclipse-workspace\\AutomationTraningProgram\\Drivers\\chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.navigate().to("https://www.facebook.com");  
+		driver.manage().window().maximize();
+  }
+
+  @AfterClass
+  public void afterClass() {
+	  driver.close();
+  }
+
+}
